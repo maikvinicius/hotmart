@@ -1,7 +1,8 @@
-package com.pesquiseme.hotmart
+package com.pesquiseme.hotmart.presentation.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.pesquiseme.hotmart.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
