@@ -1,0 +1,70 @@
+package com.pesquiseme.hotmart.presentation.home
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.pesquiseme.hotmart.R
+import com.pesquiseme.hotmart.databinding.FragmentHomeBinding
+import com.pesquiseme.hotmart.presentation.Utils
+import com.pesquiseme.hotmart.presentation.detail.DetailActivity
+import com.pesquiseme.hotmart.presentation.home.Adapter.LocationAdapter
+import org.koin.android.viewmodel.ext.android.viewModel
+
+
+class HomeFragment : Fragment() {
+
+    private val viewModel: HomeFragmentViewModel by viewModel()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
+
+    override fun onCreateView(
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?,
+    ): View? {
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding.lifecycleOwner = this
+        binding.viewModel = viewModel
+        getMessageError(viewModel)
+        getAdapter(binding, viewModel)
+        return binding.root
+    }
+
+    private fun getAdapter(binding: FragmentHomeBinding, viewModel: HomeFragmentViewModel){
+        var adapter = LocationAdapter()
+
+        binding.rvLocation.adapter = adapter
+        binding.rvLocation.setHasFixedSize(false)
+        binding.rvLocation.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        adapter.onItemClick = { location ->
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("id", location.id)
+            startActivity(intent)
+        }
+
+        viewModel.locations.observe(viewLifecycleOwner) {
+            if (!it.isNullOrEmpty()){
+                adapter.updateList(it)
+            }
+        }
+    }
+
+    private fun getMessageError(viewModel: HomeFragmentViewModel){
+        viewModel.error.observe(viewLifecycleOwner) { error ->
+            if(error != null){
+                if(error.isEmpty())
+                    context?.let { it -> Utils.showError(it.getString(R.string.alert_message_error), it) }
+                else
+                    context?.let { it -> Utils.showError(error, it) }
+            }
+        }
+    }
+
+}
