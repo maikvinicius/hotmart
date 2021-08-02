@@ -2,15 +2,15 @@
 <resources>
     <color name="black">#000000</color>
     <color name="white">#FFFFFFFF</color>
-<<<<<<< HEAD
-
     <color name="primary">#14adb8</color>
-=======
     <color name="primary">#14adb8</color>
     <color name="primary_dark">#0f8189</color>
     <color name="green_water">#d0fdef</color>
     <color name="pink_baby">#ffdae0</color>
     <color name="pastel_yellow">#fcffb1</color>
     <color name="brownish_grey">#666666</color>
->>>>>>> feature/2_home_fragment
+    <color name="green_pool">#16e5a3</color>
+    <color name="pink_pool">#ff5876</color>
+    <color name="blue_poool">#13ceda</color>
+    <color name="black_333">#333333</color>
 </resources>

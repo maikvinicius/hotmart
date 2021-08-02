@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_16">16dp</dimen>
-<<<<<<< HEAD
-=======
     <dimen name="item_home_small">136dp</dimen>
     <dimen name="item_home_radius">20dp</dimen>
     <dimen name="item_home_title">16sp</dimen>
@@ -14,5 +12,4 @@
     <dimen name="item_home_review">12sp</dimen>
     <dimen name="item_home_large">214dp</dimen>
     <dimen name="spacing">0dp</dimen>
->>>>>>> feature/2_home_fragment
 </resources>

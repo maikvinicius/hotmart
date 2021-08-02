@@ -1,7 +1,7 @@
 package com.pesquiseme.hotmart.presentation.home
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pesquiseme.hotmart.R
 import com.pesquiseme.hotmart.databinding.FragmentHomeBinding
 import com.pesquiseme.hotmart.presentation.Utils
+import com.pesquiseme.hotmart.presentation.detail.DetailActivity
 import com.pesquiseme.hotmart.presentation.home.Adapter.LocationAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -43,7 +44,9 @@ class HomeFragment : Fragment() {
         binding.rvLocation.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         adapter.onItemClick = { location ->
-            Log.d("MAIK", "MAIK $location.name")
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("id", location.id)
+            startActivity(intent)
         }
 
         viewModel.locations.observe(viewLifecycleOwner) {
