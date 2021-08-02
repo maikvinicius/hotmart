@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hotmart"
         android:name=".Hotmart">
-        <activity android:name=".presentation.home.MainActivity">
+        <activity android:name=".presentation.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
