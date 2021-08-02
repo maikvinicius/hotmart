@@ -11,4 +11,5 @@
     <dimen name="item_home_star_margin_right">3.5dp</dimen>
     <dimen name="item_home_review">12sp</dimen>
     <dimen name="item_home_large">214dp</dimen>
+    <dimen name="spacing">0dp</dimen>
 </resources>

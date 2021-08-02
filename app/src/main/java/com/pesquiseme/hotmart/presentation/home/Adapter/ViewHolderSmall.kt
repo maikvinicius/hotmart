@@ -16,6 +16,21 @@ class ViewHolderSmall(val binding: HolderLocationSmallBinding) : RecyclerView.Vi
 
         binding.ivPhoto.layoutParams.height = (300..600).random()
 
+        when(location.type){
+            TypeEnum.BARBEARIA.type -> binding.ivPhoto.setImageResource(R.color.green_water)
+            TypeEnum.BARES.type -> binding.ivPhoto.setImageResource(R.color.pink_baby)
+            TypeEnum.CAFETERIA.type -> binding.ivPhoto.setImageResource(R.color.pastel_yellow)
+            TypeEnum.COWORKING.type -> binding.ivPhoto.setImageResource(R.color.green_water)
+            TypeEnum.RESTAURANTE.type -> binding.ivPhoto.setImageResource(R.color.pink_baby)
+            TypeEnum.PADARIA.type -> binding.ivPhoto.setImageResource(R.color.pastel_yellow)
+            TypeEnum.SUCOS_NATURAIS.type -> binding.ivPhoto.setImageResource(R.color.green_water)
+            TypeEnum.PRODUTOS_NATURAIS.type -> binding.ivPhoto.setImageResource(R.color.pink_baby)
+            TypeEnum.SUPERMERCADO.type -> binding.ivPhoto.setImageResource(R.color.pastel_yellow)
+            else -> {
+                binding.ivPhoto.setImageResource(R.color.green_water)
+            }
+        }
+
         getStars(binding, location)
 
         binding.cvLocation.setOnClickListener {

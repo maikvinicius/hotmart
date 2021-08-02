@@ -2,17 +2,17 @@ package com.pesquiseme.hotmart.presentation.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.pesquiseme.hotmart.R
 import com.pesquiseme.hotmart.databinding.FragmentHomeBinding
 import com.pesquiseme.hotmart.presentation.Utils
 import com.pesquiseme.hotmart.presentation.home.Adapter.LocationAdapter
 import org.koin.android.viewmodel.ext.android.viewModel
+
 
 class HomeFragment : Fragment() {
 
@@ -23,9 +23,9 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?,
     ): View? {
         val binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
@@ -35,10 +35,12 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
-    private fun getAdapter(binding:FragmentHomeBinding, viewModel: HomeFragmentViewModel){
-        val adapter = LocationAdapter()
+    private fun getAdapter(binding: FragmentHomeBinding, viewModel: HomeFragmentViewModel){
+        var adapter = LocationAdapter()
+
         binding.rvLocation.adapter = adapter
-        binding.rvLocation.layoutManager = GridLayoutManager(context, 2)
+        binding.rvLocation.setHasFixedSize(false)
+        binding.rvLocation.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         adapter.onItemClick = { location ->
             Log.d("MAIK", "MAIK $location.name")
