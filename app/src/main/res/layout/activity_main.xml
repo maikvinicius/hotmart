@@ -13,7 +13,11 @@
         android:layout_height="match_parent"
         app:navGraph="@navigation/navigation"
         app:defaultNavHost="true"
+<<<<<<< HEAD
         app:layout_constraintBottom_toTopOf="@id/bottomNavigation"/>
+=======
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation" />
+>>>>>>> feature/2_home_fragment
 
     <com.pesquiseme.hotmart.presentation.component.bottom_navigation.BottomNavigation
         android:id="@+id/bottomNavigation"
