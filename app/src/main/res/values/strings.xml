@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Hotmart</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="app_name_home">Home</string>
+    <string name="no_connection">Verifique a sua conexão e tente novamente.</string>
+    <string name="alert_title_error">Atenção</string>
+    <string name="alert_message_error">Não foi possível trazer os dados.</string>
+    <string name="alert_button_error">OK</string>
 </resources>

@@ -1,9 +1,12 @@
 package com.pesquiseme.hotmart.presentation.di
 
-import org.koin.androidx.viewmodel.dsl.viewModel
+import com.pesquiseme.hotmart.presentation.home.HomeFragmentViewModel
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 object PresentationModule {
     // viewModel
-    val presentationModule = module {}
+    val presentationModule = module {
+        viewModel { HomeFragmentViewModel(get()) }
+    }
 }
