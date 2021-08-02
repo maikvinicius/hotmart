@@ -6,7 +6,7 @@ data class Location(
     var review: Double,
     val type: String,
     val about: String,
-    val schedule: List<Week>,
+    val schedule: ArrayList<Week>,
     val phone: String,
     val adress: String
 )

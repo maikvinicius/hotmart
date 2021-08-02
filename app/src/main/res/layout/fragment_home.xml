@@ -21,5 +21,11 @@
             app:layout_constraintTop_toTopOf="parent"
             android:visibility="@{viewModel.loading ? View.VISIBLE : View.INVISIBLE}"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvLocation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
