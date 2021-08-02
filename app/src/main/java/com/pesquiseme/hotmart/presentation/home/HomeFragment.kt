@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.pesquiseme.hotmart.R
 import com.pesquiseme.hotmart.databinding.FragmentHomeBinding
@@ -37,7 +38,7 @@ class HomeFragment : Fragment() {
     private fun getAdapter(binding:FragmentHomeBinding, viewModel: HomeFragmentViewModel){
         val adapter = LocationAdapter()
         binding.rvLocation.adapter = adapter
-        binding.rvLocation.layoutManager = LinearLayoutManager(context)
+        binding.rvLocation.layoutManager = GridLayoutManager(context, 2)
 
         adapter.onItemClick = { location ->
             Log.d("MAIK", "MAIK $location.name")
